@@ -15,26 +15,37 @@ const Banner = () => {
     getMovie();
   }, []);
   console.log(movie);
+  // truncate function
+  function truncateString(str, num) {
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
   return (
-    <header
-      className="banner"
-      style={{
-        background: movie
-          ? `url(${base_url}${movie?.poster_path}) no-repeat center center/cover`
-          : "#333",
-        height: "65vh",
-      }}
-    >
-      <div className="banner_container">
-        <h1 className="large_title">
-          {movie?.title || movie?.name || movie?.original_name}
-        </h1>
-        <button className="btn-primary">Play</button>
-        <h3 className="banner_description">
-          {movie?.description || movie?.overview}
-        </h3>
-      </div>
-    </header>
+    <>
+      <header
+        className="banner"
+        style={{
+          background: movie
+            ? `url(${base_url}${movie?.poster_path}) no-repeat center center/cover`
+            : "#333",
+          height: "65vh",
+        }}
+      >
+        <div className="banner_container">
+          <h1 className="large_title">
+            {movie?.title || movie?.name || movie?.original_name}
+          </h1>
+          <button className="btn-primary">Play</button>
+          <h3 className="banner_description">
+            {movie.length !== 0 && truncateString(movie.overview, 150)}
+          </h3>
+        </div>
+        <div className="overlay"></div>
+      </header>
+    </>
   );
 };
 

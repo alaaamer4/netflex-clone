@@ -39,21 +39,46 @@ body {
 .banner {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-left: 5rem;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   color: #fff;
+  position: relative;
 }
 .banner_container {
   max-width: 60%;
 }
+.large_title {
+  font-size: 3rem;
+}
+.overlay {
+  height: 6rem;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.65),
+    #333
+  );
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
 .btn-primary {
   display: inline-block;
-  margin: 1.2rem;
+
+  margin: 1rem;
+  color: #fff;
   padding: 0.5rem 1.5rem;
-  background: #fafafa;
-  border-radius: 0.5rem;
+  background: rgba(51, 51, 51, 0.5);
+  font-weight: 700;
   outline: none;
   border: none;
   cursor: pointer;
+  transition: transform 350ms;
+}
+.btn-primary:hover {
+  transform: scale(1.1);
+  background: #e4e1e1;
+  color: #333;
 }
